@@ -1,0 +1,20 @@
+// geeksforgeeks.org/problems/reverse-a-linked-list/1?page=1&category=Linked%20List&status=solved&sortBy=difficulty
+
+class Solution
+{
+    //Function to reverse a linked list.
+    Node reverseList(Node head)
+    {
+        Node cur=head;
+        Node next=null;
+        Node prev=null;
+        
+        while(cur!=null){
+            next=cur.next;
+            cur.next=prev;
+            prev=cur;
+            cur=next;
+        }
+        return prev;
+    }
+}
