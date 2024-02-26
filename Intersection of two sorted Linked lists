@@ -1,0 +1,36 @@
+// https://www.geeksforgeeks.org/problems/intersection-of-two-sorted-linked-lists/1?page=1&category=Linked%20List&status=solved&sortBy=difficulty
+
+class Solution
+{
+   public static Node findIntersection(Node head1, Node head2)
+    {
+        Node temphead1=head1;
+        Node temphead2=head2;
+        Node res=null;
+        Node cur=null;
+        
+        while(temphead1!=null && temphead2!=null){
+            if(temphead1.data<temphead2.data){
+                temphead1=temphead1.next;
+            }
+            else if(temphead1.data>temphead2.data){
+                temphead2=temphead2.next;
+            }
+            else{
+                if(res==null){
+                    res = new Node(temphead1.data);
+                    cur=res;
+                }
+                else{
+                    Node temp = new Node(temphead1.data);
+                    cur.next=temp;
+                    cur=temp;
+                }
+                temphead1=temphead1.next;
+                temphead2=temphead2.next;
+            }
+        }
+        
+        return res;
+    }
+}
